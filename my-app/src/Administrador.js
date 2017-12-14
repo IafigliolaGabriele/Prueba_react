@@ -8,7 +8,6 @@ import Prueba from './components/Prueba';
 import firebase from 'firebase';
 import ReactDOM from 'react-dom';
 import Empleados from './Empleados';
-import Administrador from './Administrador';
 import {
   Route,
   NavLink,
@@ -16,7 +15,7 @@ import {
 } from "react-router-dom";
 
 
-class App extends Component {
+class Administrador extends Component {
 
   constructor(props){
   super(props);
@@ -25,19 +24,26 @@ class App extends Component {
 
   render() {
     return (
-    	<HashRouter>
     	<div>
-	          <div className="content">
-	             <Header title="Simple Firebase App" />
-	             <Route path="/empleado" component={Empleados}/>
-                 <Route path="/administrador" component={Administrador}/>
-	          </div>
-	          <div>
-	          </div>
+    	<Header title="Simple Firebase App" />
+	        <div className="container">
+	            <div className="columns">
+	              <div className="column is-3"></div>
+	              <div className="column is-6">
+	                 <ListClientes />
+	              </div>
+	            </div>
+	            <div className="columns">
+	              <div className="column is-3"></div>
+	              <div className="column is-6">
+	                <FormCliente />
+	              </div>
+	            </div>
+	            
+	        </div>
         </div>
-        </HashRouter>
     );
   }
 }
 
-export default App;
+export default Administrador;

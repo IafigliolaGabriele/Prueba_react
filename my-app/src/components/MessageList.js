@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Message from './Message';
 import _ from 'lodash';
+import {db} from '../config/constants'
 /*
 class MessageList extends Component {
   constructor(props){
@@ -8,7 +9,7 @@ class MessageList extends Component {
     this.state = {
       messages: []
     };
-    let app = this.props.db.database().ref('Clientes/1/Telefonos');
+    let app = db.ref('Clientes/1/Telefonos');
     app.on('value', snapshot => {
       this.getData(snapshot.val());
       console.log(app);
@@ -18,7 +19,7 @@ class MessageList extends Component {
   getData(values){
   	console.log(values)
     let messages = values;
-   /* let messages = _(messagesVal)
+    let messages = _(messagesVal)
                       .keys()
                       .map(messageKey => {
                           let cloned = _.clone(messagesVal[messageKey]);
@@ -57,7 +58,8 @@ class MessageList extends Component {
     this.state = {
       messages: []
     };
-    let app = this.props.db.database().ref('Prueba');
+    let app = db.ref('messages');
+    console.log(app);
     app.on('value', snapshot => {
       this.getData(snapshot.val());
     });
@@ -84,7 +86,7 @@ class MessageList extends Component {
       return (
         <div className="card">
           <div className="card-content">
-            <Message message = {message.message} />
+            <Message message = {message.Nombre} apellido={message.Apellido} telefonos={message.Telefonos} />
           </div>
         </div>
       )

@@ -1,4 +1,10 @@
 import React, {Component} from 'react';
+import Empleados from '../Empleados';
+import {
+  Route,
+  NavLink,
+  HashRouter
+} from "react-router-dom";
 
 class Header extends Component {
 
@@ -6,9 +12,15 @@ class Header extends Component {
     return (
       <nav className="navbar">
         <div className="navbar-brand">
-          <a className="navbar-item" href="http://bulma.io">
-            {this.props.title}
-          </a>
+          <NavLink exact to="/" className="navbar-item">
+          {this.props.title}
+          </NavLink>
+          <NavLink exact to="/empleado" className="navbar-item">
+          Empleado
+          </NavLink>
+          <NavLink exact to="/administrador" className="navbar-item">
+          Administrador
+          </NavLink>
         </div>
       </nav>
     )

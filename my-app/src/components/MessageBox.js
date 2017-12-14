@@ -1,6 +1,7 @@
 // MessageBox.js
 
 import React, {Component} from 'react';
+import {db} from '../config/constants'
 
 class MessageBox extends Component {
 
@@ -20,10 +21,11 @@ class MessageBox extends Component {
   onKeyup(e){
     if(e.keyCode === 13){
       e.preventDefault();
-      let dbCon = this.props.db.database().ref('/Prueba');
-      dbCon.push({
+      let dbCon = db.ref('/Clientes');
+      /*dbCon.push({
         message: e.target.value
       });
+      */
       console.log(dbCon);
       this.setState({
         message: ''
