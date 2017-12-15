@@ -7,9 +7,9 @@ class ListClientes extends Component {
 
   constructor(props){
     super(props);
-    this.state = {
-      clientes: []
-    };
+      this.state = {
+        clientes: []
+      };
     let app = db.ref('Clientes');
     console.log(app);
     app.on('value', snapshot => {

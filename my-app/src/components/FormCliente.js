@@ -26,7 +26,6 @@ class FormCliente extends Component {
 
    }else{
      var valores = this.state.Telefonos;
-     var index=0;
      if(name==='Telefono1'){
         valores['Telefono1']=target.value;
      }else{

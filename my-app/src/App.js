@@ -12,7 +12,7 @@ import Administrador from './Administrador';
 import {
   Route,
   NavLink,
-  HashRouter
+  BrowserRouter
 } from "react-router-dom";
 
 
@@ -25,17 +25,26 @@ class App extends Component {
 
   render() {
     return (
-    	<HashRouter>
+    	<BrowserRouter>
     	<div>
+    	<nav className="navbar">
+	        <div className="navbar-brand">
+	          <NavLink exact to="/empleado" className="navbar-item">
+	          Empleado
+	          </NavLink>
+	          <NavLink exact to="/administrador" className="navbar-item">
+	          Administrador
+	          </NavLink>
+	        </div>
+        </nav>
 	          <div className="content">
-	             <Header title="Simple Firebase App" />
 	             <Route path="/empleado" component={Empleados}/>
                  <Route path="/administrador" component={Administrador}/>
 	          </div>
 	          <div>
 	          </div>
         </div>
-        </HashRouter>
+        </BrowserRouter>
     );
   }
 }

@@ -3,6 +3,7 @@ import MessageList from './components/MessageList';
 import MessageBox from './components/MessageBox';
 import ListClientes from './components/ListClientes';
 import FormCliente from './components/FormCliente';
+import FormEmpleado from './components/FormEmpleado';
 import Header from './components/Header';
 import Prueba from './components/Prueba';
 import firebase from 'firebase';
@@ -25,7 +26,6 @@ class Administrador extends Component {
   render() {
     return (
     	<div>
-    	<Header title="Simple Firebase App" />
 	        <div className="container">
 	            <div className="columns">
 	              <div className="column is-3"></div>
@@ -36,7 +36,7 @@ class Administrador extends Component {
 	            <div className="columns">
 	              <div className="column is-3"></div>
 	              <div className="column is-6">
-	                <FormCliente />
+	                <FormEmpleado />
 	              </div>
 	            </div>
 	            
