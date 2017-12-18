@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
-import MessageList from './components/MessageList';
-import MessageBox from './components/MessageBox';
+import FormEmpleado from './components/FormEmpleado';
+import Empleado from './components/Empleado';
 import Header from './components/Header';
 import firebase from 'firebase';
 import { ref } from './config/constants'
+import {
+  Route,
+  NavLink,
+  BrowserRouter,
+  Link
+} from "react-router-dom";
 
 class Empleados extends Component {
 
@@ -11,10 +17,8 @@ class Empleados extends Component {
     super(props);
   }
 
-  render() {
-    return (
-        <div className="container">
-            <div className="columns">
+/*
+<div className="columns">
               <div className="column is-3"></div>
               <div className="column is-6">
                  <MessageList />
@@ -26,6 +30,13 @@ class Empleados extends Component {
                 <MessageBox  />
               </div>
             </div>
+*/
+
+  render() {
+    return (
+        <div className="container">
+               <Route exact path="/empleado/agregarEmpleado" component={FormEmpleado}/>
+               <Route exact path="/administrador" component={Empleado}/>
         </div>
     );
   }

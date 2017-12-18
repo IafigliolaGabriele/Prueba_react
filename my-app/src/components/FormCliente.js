@@ -5,12 +5,19 @@ class FormCliente extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      Nombre: '',
-      Correo: '',
-      Telefonos: { }
+      Nombre: null,
+      Correo: null,
+      Telefonos: { 
+        Telefono1: null,
+        Telefono2: null
+      }
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  componentDidMount(){
+    console.log(this.props.type);
   }
 
   handleInputChange(event){
@@ -55,27 +62,27 @@ class FormCliente extends Component {
       <form id='miForm' onSubmit={this.handleSubmit}>
         <label>
           Nombre
-          <input name="Nombre" type="text" placeholder="Nombre" onChange={this.handleInputChange} />
+          <input name="Nombre" type="text" value={this.state.Nombre} placeholder="Nombre" onChange={this.handleInputChange} />
         </label>
         <br />
         <label>
           Apellido
-          <input name="Apellido" type="text" placeholder="Apellido" onChange={this.handleInputChange} />
+          <input name="Apellido" type="text" value={this.state.Apellido} placeholder="Apellido" onChange={this.handleInputChange} />
         </label>
         <br />
         <label>
           Correo
-          <input name="Correo" type="email" placeholder="taco@correo.com" onChange={this.handleInputChange}/>
+          <input name="Correo" type="email" placeholder="taco@correo.com" value={this.state.Correo} onChange={this.handleInputChange}/>
         </label>
         <br />
         <label>
           Telefono
-          <input name="Telefono1" type="number" placeholder="0212 0000000" onChange={this.handleInputChange} /> 
+          <input name="Telefono1" type="number" placeholder="02120000000" value={this.state.Telefonos.Telefono1} onChange={this.handleInputChange} /> 
          </label> 
          <br />
          <label>
           Telefono2
-          <input name="Telefono2" type="number" placeholder="0212 0000000" onChange={this.handleInputChange}/>
+          <input name="Telefono2" type="number" placeholder="02120000000" value={this.state.Telefonos.Telefono2}onChange={this.handleInputChange}/>
           </label>
           <br />
       </form>

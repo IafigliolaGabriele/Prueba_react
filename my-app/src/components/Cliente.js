@@ -7,17 +7,17 @@ class Cliente extends Component {
     	<div>
     		<h1>Cliente</h1>
 	      <div>
-	        Nombre: {this.props.nombre} , Apellido: {this.props.apellido}
+	        Nombre: {this.props.cliente.Nombre} , Apellido: {this.props.cliente.Apellido}
 	      </div>
 	      <div>
-	      	Correo: {this.props.correo}
+	      	Correo: {this.props.cliente.Correo}
 	      </div>
 	      <div>
 	      	Telefonos:
 	      </div>
 	      <ul>
-	      	<li> Telefono1 : {this.props.telefonos['Telefono1']} </li>
-	      	<li> Telefono2 : {this.props.telefonos['Telefono2']} </li>
+	      	<li> Telefono1 : {this.props.cliente.Telefonos['Telefono1']} </li>
+	      	<li> Telefono2 : {this.props.cliente.Telefonos['Telefono2']} </li>
 	      </ul>
 	      
 	    </div>  

@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import MessageList from './components/MessageList';
 import MessageBox from './components/MessageBox';
 import ListClientes from './components/ListClientes';
+import ListEmpleados from './components/ListEmpleados';
 import FormCliente from './components/FormCliente';
+import FormEmpleado from './components/FormEmpleado';
 import Header from './components/Header';
 import Prueba from './components/Prueba';
 import firebase from 'firebase';
@@ -12,7 +14,8 @@ import Administrador from './Administrador';
 import {
   Route,
   NavLink,
-  BrowserRouter
+  BrowserRouter,
+  Link
 } from "react-router-dom";
 
 
@@ -29,17 +32,13 @@ class App extends Component {
     	<div>
     	<nav className="navbar">
 	        <div className="navbar-brand">
-	          <NavLink exact to="/empleado" className="navbar-item">
-	          Empleado
-	          </NavLink>
-	          <NavLink exact to="/administrador" className="navbar-item">
-	          Administrador
-	          </NavLink>
+	          <Link to='/empleado' className="navbar-item"> Empleado</Link>
+	          <Link to="/administrador" className="navbar-item"> Administrador</Link>
 	        </div>
         </nav>
 	          <div className="content">
 	             <Route path="/empleado" component={Empleados}/>
-                 <Route path="/administrador" component={Administrador}/>
+               <Route path="/administrador" component={Administrador}/>
 	          </div>
 	          <div>
 	          </div>

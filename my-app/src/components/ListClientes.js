@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Cliente from './Cliente';
+import FormCliente from './FormCliente';
 import _ from 'lodash';
 import {db} from '../config/constants'
 
@@ -7,9 +8,12 @@ class ListClientes extends Component {
 
   constructor(props){
     super(props);
-      this.state = {
+    this.state = {
         clientes: []
       };
+  }
+
+  componentDidMount() {
     let app = db.ref('Clientes');
     console.log(app);
     app.on('value', snapshot => {
@@ -19,7 +23,7 @@ class ListClientes extends Component {
 
   getData(values){
     let clientesVal = values;
-      console.log(values);
+      console.log("valores: "+JSON.stringify(values));
     let clientes = _(clientesVal)
                       .keys()
                       .map(messageKey => {
@@ -28,6 +32,7 @@ class ListClientes extends Component {
                           return cloned;
                       })
                       .value();
+      console.log("valores2: "+JSON.stringify(clientes));                 
       this.setState({
         clientes: clientes
       });
@@ -51,19 +56,22 @@ class ListClientes extends Component {
   }
 */
   render() {
-    let clienteNodes = this.state.clientes.map((cliente) => {
+    let clienteNodes = this.state.clientes.map((cliente, id) => {
       return (
         <div className="card">
+          <h5>{cliente.keys}</h5>
           <div className="card-content">
-            <Cliente nombre = {cliente.Nombre} apellido={cliente.Apellido} telefonos={cliente.Telefonos} correo={cliente.Correo} />
+            <Cliente cliente = {cliente}  />
           </div>
         </div>
       )
     });
     return (
+    <div>  
       <div>
         {clienteNodes}
       </div>
+    </div>  
     );
   }
 }

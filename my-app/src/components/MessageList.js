@@ -58,6 +58,12 @@ class MessageList extends Component {
     this.state = {
       messages: []
     };
+  }
+
+   componentDidMount() {
+    this.state = {
+      messages: []
+    };
     let app = db.ref('messages');
     console.log(app);
     app.on('value', snapshot => {
